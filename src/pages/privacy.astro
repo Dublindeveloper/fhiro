@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = "January 20, 2026";
+---
+
+<Layout 
+  title="Privacy Policy – Fhiro"
+  description="Data protection and privacy standards for the Fhiro early access programme."
+>
+  <Navigation />
+  
+  <main class="min-h-screen grid-background pt-24 pb-20">
+    <div class="max-w-3xl mx-auto px-6">
+      
+      <div class="mb-12">
+        <h1 class="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
+        <p class="text-[#94A3B8]">Last Updated: {lastUpdated}</p>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-[#94A3B8]">
+        
+        <p>
+          Welcome to Fhiro. This Privacy Policy explains how we handle your data during our 
+          <strong>Early Access / Waitlist phase</strong>. As a provider of compliance infrastructure 
+          for the <span class="text-white">European Health Data Space (EHDS)</span>, we hold ourselves 
+          to the highest standards of data sovereignty and security.
+        </p>
+
+        <h3 class="text-white mt-10">1. Who We Are</h3>
+        <p>
+          For the purposes of the GDPR, this project is currently managed by:
+          <br />
+          <strong>Project Lead:</strong> Jinish Rajan (Trading as Fhiro)
+          <br />
+          <strong>Location:</strong> Dublin, Ireland
+          <br />
+          <strong>Contact:</strong> <a href="mailto:privacy@fhiro.com" class="text-[#10B981] no-underline hover:underline">privacy@fhiro.com</a>
+        </p>
+        <p class="text-sm bg-[#1E293B] p-4 rounded-lg border border-[#334155]">
+          <em>Note: Fhiro is in a pre-incorporation phase. This policy will be formally updated upon legal entity registration in Ireland.</em>
+        </p>
+
+        <h3 class="text-white mt-10">2. The Data We Collect</h3>
+        <p>
+          Currently, we only collect data necessary to manage our "Opening Q1 2025" rollout:
+        </p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Contact Information:</strong> Your email address (via the Waitlist Form).</li>
+          <li><strong>Professional Verification:</strong> We may request your Medical Council Number (MCN) or practice details to verify your eligibility, as Fhiro is exclusive to registered practitioners.</li>
+          <li><strong>Usage Data:</strong> Minimal, anonymized telemetry to ensure site performance and security.</li>
+        </ul>
+
+        <h3 class="text-white mt-10">3. Purpose & Legal Basis</h3>
+        <p>
+          We process your data based on <strong>Consent</strong> (joining the waitlist) and <strong>Legitimate Interest</strong> (preventing fraud and ensuring only qualified professionals access the platform).
+        </p>
+        <p>We use your data to:</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Secure your spot in the Q1 2025 rollout queue.</li>
+          <li>Verify your status as a registered healthcare professional in Ireland.</li>
+          <li>Notify you of critical compliance updates related to the <em>Health Information Bill 2024</em>.</li>
+        </ul>
+
+        <h3 class="text-white mt-10">4. Data Sovereignty (The "eu-west-1" Promise)</h3>
+        <p>
+          We do not rely on US-based cloud storage for sensitive data. 
+          All waitlist and verification data is stored and processed exclusively within the <strong>European Union (Ireland)</strong>, utilizing AWS eu-west-1 infrastructure to ensure alignment with EHDS requirements.
+        </p>
+
+        <h3 class="text-white mt-10">5. Your Rights</h3>
+        <p>
+          Under the GDPR, you have the right to access, rectify, or erase your data at any time. 
+          If you wish to leave the waitlist, simply email <a href="mailto:privacy@fhiro.com" class="text-[#10B981] no-underline hover:underline">privacy@fhiro.com</a> and we will delete your record immediately.
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

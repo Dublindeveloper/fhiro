@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import ShieldAnimation from '../components/ShieldAnimation.tsx';
+import WaitlistForm from '../components/WaitlistForm.tsx';
+---
+
+<Layout 
+  title="Fhiro – Compliance Infrastructure for Irish Private Practice"
+  description="The Health Information Bill 2024 changes everything. Fhiro is the secure interoperability layer that keeps independent consultants connected, compliant, and practicing."
+>
+  <Navigation />
+  <main class="min-h-screen grid-background pt-20">
+    
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 pt-24 pb-20 text-center">
+      <!-- Status Badge -->
+      <div class="flex justify-center mb-8">
+        <div class="status-badge">
+          <span class="relative flex h-2 w-2">
+            <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Opening Q1 2025</span>
+        </div>
+      </div>
+      
+      <!-- Headline -->
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
+        <span class="text-white">Compliance is</span>
+        <br />
+        <span class="text-gradient">no longer optional.</span>
+      </h1>
+      
+      <!-- Subheadline -->
+      <p class="text-lg md:text-xl text-[#94A3B8] max-w-2xl mx-auto mb-10 leading-relaxed">
+        The Health Information Bill 2024 changes everything for private practice. 
+        <span class="text-white font-medium">Fhiro</span> is the secure interoperability layer that keeps 
+        independent consultants connected, compliant, and practicing.
+      </p>
+      
+      <!-- Shield Animation -->
+      <div class="mb-12">
+        <ShieldAnimation client:load />
+      </div>
+      
+      <!-- Email Capture Form -->
+      <WaitlistForm client:load />
+      
+      <!-- Micro-copy -->
+      <p class="text-sm text-[#64748B]">
+        Limited slots for Q1 2025 rollout. Exclusive to Irish Medical Council registered practitioners.
+      </p>
+    </section>
+    
+    <!-- Problem Grid Section -->
+    <section class="max-w-6xl mx-auto px-6 py-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: The Duty to Share -->
+        <div class="premium-card p-8">
+          <div class="problem-icon mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">The Duty to Share</h3>
+          <p class="text-[#94A3B8] leading-relaxed">
+            New legislation mandates digital interoperability for all private providers. 
+            Paper workflows will ultimately create liability.
+          </p>
+        </div>
+        
+        <!-- Card 2: The Standards Gap -->
+        <div class="premium-card p-8">
+          <div class="problem-icon mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">The Standards Gap</h3>
+          <p class="text-[#94A3B8] leading-relaxed">
+            HL7, FHIR, OpenEHR. The national infrastructure is complex. 
+            You practice medicine; we handle the protocol negotiation.
+          </p>
+        </div>
+        
+        <!-- Card 3: Data Sovereignty -->
+        <div class="premium-card p-8">
+          <div class="problem-icon mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Data Sovereignty</h3>
+          <p class="text-[#94A3B8] leading-relaxed">
+            Fully hosted in <span class="text-[#10B981] font-medium">eu-west-1</span>. 
+            Built strictly for the European Health Data Space (EHDS).
+          </p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Solution Hint Section -->
+    <section class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Your practice, future-proofed.
+      </h2>
+      <p class="text-lg text-[#94A3B8] max-w-2xl mx-auto mb-16">
+        Fhiro acts as the invisible bridge between your current workflow and the 
+        new National Shared Care Record. No system overhaul required.
+      </p>
+      
+      <!-- Simple Connection Diagram -->
+      <div class="flex items-center justify-center gap-4 md:gap-8">
+        <!-- Clinic Icon -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-20 h-20 rounded-2xl bg-[#1E293B] border border-[#334155] flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <path d="M9 22V12h6v10"></path>
+            </svg>
+          </div>
+          <span class="text-sm text-[#64748B] font-medium">Your Clinic</span>
+        </div>
+        
+        <!-- Connector Line -->
+        <div class="flex-1 max-w-32 md:max-w-48">
+          <div class="connector-line"></div>
+        </div>
+        
+        <!-- Fhiro Bridge -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-20 h-20 rounded-2xl bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center">
+            <span class="text-2xl font-bold text-[#10B981]">F</span>
+          </div>
+          <span class="text-sm text-[#10B981] font-medium">Fhiro</span>
+        </div>
+        
+        <!-- Connector Line -->
+        <div class="flex-1 max-w-32 md:max-w-48">
+          <div class="connector-line"></div>
+        </div>
+        
+        <!-- National Network Icon -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-20 h-20 rounded-2xl bg-[#1E293B] border border-[#334155] flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <span class="text-sm text-[#64748B] font-medium">National Network</span>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <Footer />
+</Layout>

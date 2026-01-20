@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdminWaitlist from '../components/AdminWaitlist.tsx';
+---
+
+<Layout 
+  title="Admin – Fhiro Waitlist"
+  description="Admin dashboard for Fhiro waitlist management"
+>
+  <AdminWaitlist client:load />
+</Layout>

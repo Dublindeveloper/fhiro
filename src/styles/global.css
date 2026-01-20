@@ -1,0 +1,204 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  --midnight: #0F172A;
+  --midnight-light: #1E293B;
+  --signal-green: #10B981;
+  --signal-green-light: #34D399;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--midnight);
+  color: var(--text-primary);
+  position: relative;
+}
+
+/* Subtle gradient glow background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(16, 185, 129, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Subtle grid overlay */
+.grid-background {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Gradient text - Signal Green */
+.text-gradient {
+  background: linear-gradient(135deg, var(--signal-green) 0%, var(--signal-green-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dark glass-morphism card */
+.premium-card {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-card:hover {
+  border-color: rgba(16, 185, 129, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.1),
+    0 16px 48px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Signal Green CTA button */
+.glow-button {
+  background: var(--signal-green);
+  color: var(--midnight);
+  font-weight: 600;
+  box-shadow:
+    0 0 20px rgba(16, 185, 129, 0.3),
+    0 4px 12px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  background: var(--signal-green-light);
+  box-shadow:
+    0 0 30px rgba(16, 185, 129, 0.4),
+    0 8px 24px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Stealth email input */
+.stealth-input {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.stealth-input::placeholder {
+  color: var(--text-muted);
+}
+
+.stealth-input:focus {
+  outline: none;
+  border-color: var(--signal-green);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* Status badge - green glow */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: var(--signal-green);
+}
+
+/* Animated pulse dot */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.pulse-dot {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Shield lock animation */
+@keyframes shield-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.5));
+  }
+}
+
+.shield-glow {
+  animation: shield-glow 3s ease-in-out infinite;
+}
+
+@keyframes lock-slide {
+  0% {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.lock-animate {
+  animation: lock-slide 0.6s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+/* Problem card icon */
+.problem-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Simple line connector for solution diagram */
+.connector-line {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.3), var(--signal-green), rgba(16, 185, 129, 0.3));
+  position: relative;
+}
+
+.connector-line::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--signal-green);
+}
