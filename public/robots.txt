@@ -1,0 +1,14 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://fhiro.ie/sitemap-index.xml
+
+# Block admin pages from indexing
+Disallow: /admin
+
+# Allow search engines to index all public pages
+Allow: /
+Allow: /contact
+Allow: /privacy

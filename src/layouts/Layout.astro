@@ -4,10 +4,16 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  keywords?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, keywords } = Astro.props;
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+const siteUrl = "https://fhiro.ie";
+
+// Default keywords for healthcare/FHIR discoverability
+const defaultKeywords = "FHIR Ireland, HL7 FHIR, healthcare interoperability Ireland, Health Information Bill 2024, private practice compliance, EHDS compliance, European Health Data Space, medical data integration, consultant compliance software, Irish healthcare IT, healthcare API Ireland, medical record sharing, National Shared Care Record, digital health Ireland, healthcare standards compliance";
+const metaKeywords = keywords || defaultKeywords;
 ---
 
 <!doctype html>
@@ -22,31 +28,104 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : unde
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="keywords" content={metaKeywords} />
     {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+    
+    <!-- Geo/Language Targeting -->
+    <meta name="geo.region" content="IE" />
+    <meta name="geo.placename" content="Dublin" />
+    <meta name="language" content="English" />
+    <meta name="robots" content="index, follow" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="og:site_name" content="FHIRO" />
+    <meta property="og:locale" content="en_IE" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/og-image.png" />
+    <meta property="twitter:image" content={`${siteUrl}/og-image.png`} />
     
-    <!-- JSON-LD Schema -->
+    <!-- JSON-LD Organization Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Fhiro Health",
-      "url": "https://fhiro.com",
-      "logo": "https://fhiro.com/logo.png",
-      "sameAs": ["https://reflow.ie"],
-      "description": "Interoperability Infrastructure for the European Health Data Space."
+      "name": "FHIRO Health",
+      "alternateName": "FHIRO",
+      "url": siteUrl,
+      "logo": `${siteUrl}/logo.png`,
+      "description": "FHIR-compliant healthcare interoperability infrastructure for Irish private practice. Compliance solutions for the Health Information Bill 2024 and European Health Data Space (EHDS).",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dublin",
+        "addressCountry": "IE"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ireland"
+      },
+      "knowsAbout": [
+        "FHIR",
+        "HL7",
+        "Healthcare Interoperability",
+        "European Health Data Space",
+        "Health Information Bill 2024",
+        "Medical Data Integration"
+      ]
+    })} />
+    
+    <!-- JSON-LD SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FHIRO",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "description": "Secure interoperability layer for Irish private practice compliance with the Health Information Bill 2024. Connects consultants to the National Shared Care Record using FHIR standards.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder",
+        "availabilityStarts": "2026-04-01"
+      },
+      "featureList": [
+        "FHIR R4 Compliance",
+        "HL7 Integration",
+        "EHDS Ready",
+        "GDPR Compliant",
+        "EU Data Sovereignty"
+      ]
+    })} />
+    
+    <!-- JSON-LD WebPage Schema for Homepage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": Astro.url,
+      "inLanguage": "en-IE",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "FHIRO",
+        "url": siteUrl
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Healthcare Compliance Software Ireland"
+      },
+      "mentions": [
+        { "@type": "Thing", "name": "Health Information Bill 2024" },
+        { "@type": "Thing", "name": "FHIR" },
+        { "@type": "Thing", "name": "European Health Data Space" },
+        { "@type": "Thing", "name": "Irish Medical Council" }
+      ]
     })} />
   </head>
   <body>
